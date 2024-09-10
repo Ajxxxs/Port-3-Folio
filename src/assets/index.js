@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import logo_3 from "./logo_3.svg" ;
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -30,8 +31,14 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+import proj_1 from "./proj_1.png";
+import proj_2 from "./proj_2.png";
+import proj_3 from "./proj_3.png";  
+import proj_4 from "./proj_4.png";
+
 export {
   logo,
+  logo_3,
   backend,
   creator,
   mobile,
@@ -59,4 +66,8 @@ export {
   carrent,
   jobit,
   tripguide,
+  proj_1,
+  proj_2,
+  proj_3,
+  proj_4,
 };

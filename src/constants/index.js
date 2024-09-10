@@ -23,6 +23,10 @@ import {
   jobit,
   tripguide,
   threejs,
+  proj_1,
+  proj_2,
+  proj_3,
+  proj_4,
 } from "../assets";
 
 export const navLinks = [
@@ -189,18 +193,24 @@ const testimonials = [
   },
 ];
 
+
+
+
+
+
+
 const projects = [
   {
-    name: "Car Rent",
+    name: "3-D Portfolio",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A visually engaging 3D portfolio built with React and Three.js, featuring animated sections like About, Experience, Projects, Skills, and Contact Me.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "three.js",
         color: "green-text-gradient",
       },
       {
@@ -208,51 +218,72 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: proj_1,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "Agro-Vision",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "AgroVision: intelligent web application designed to help farmers and agricultural experts predict crop diseases using plant leaf images and recommend suitable crops based on environmental factors",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "flask",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: proj_2,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Muscle-Matrix",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Muscle-Matrix offers personalized workout routines tailored to your muscle targets and strength goals, providing adaptive fitness solutions for your unique needs.",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "javascript",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: proj_3,
     source_code_link: "https://github.com/",
   },
+  {
+    name: "Blog-101",
+    description:
+      "Blog-101 is a sleek platform for creating and managing content with ease, featuring a responsive and interactive interface for engaging blog experiences.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "rest-api",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: proj_4,
+    source_code_link: "https://github.com/",
+  }
 ];
 
 export { services, technologies, experiences, testimonials, projects };

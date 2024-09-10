@@ -1,23 +1,25 @@
-import {Suspense,useState,useEffect} from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Preload } from '@react-three/drei';
-
+import { OrbitControls, useGLTF, Preload, useAnimations } from '@react-three/drei';
 import CanvasLoader from '../Loader';
 
-const Computers = ({isMobile}) => {
+const Computers = ({ isMobile }) => {
+  const { scene, animations } = useGLTF('./rigged_cube/scene.gltf');
+  const { actions } = useAnimations(animations, scene);
 
-  const computer = useGLTF('./desktop_pc/scene.gltf');
+  useEffect(() => {
+    if (actions && Object.keys(actions).length > 0) {
+      const solvingAnimation = actions[Object.keys(actions)[0]]; // Assuming the first animation is the solving one
+      solvingAnimation?.play(); // Ensure the animation exists before playing it
+    }
+  }, [actions]);
 
   return (
-    
     <mesh>
-      <hemisphereLight 
-        intensity={0.75}
-        groundColor="black"
-       />
+      <hemisphereLight intensity={0.75} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight 
-        position={[-20,50,10]} 
+        position={[-20, 50, 10]} 
         angle={0.12}
         penumbra={1}
         intensity={1}
@@ -25,60 +27,51 @@ const Computers = ({isMobile}) => {
         shadow-mapSize={1024}
       />
       <primitive 
-        object={computer.scene} 
-        scale={isMobile ? 0.7 : 0.75}  
-        position={isMobile ? [0,-3,-2.2] : [0,-3.25,-1.5]}
-        rotation={[-0.01,-0.2,-0.1]}
+        object={scene} 
+        scale={isMobile ? 0.7 : 5}  
+        position={isMobile ? [0, -2, -1] : [0, -2, -0]}
+        rotation={[-0.01, -0.2, 0]}
       />
-       
     </mesh>
-  )
+  );
 };
 
-
-
 const ComputersCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
 
-  const [isMobile,setIsMobile] = useState(false);
-
-  useEffect(()=>{
-    const mediaQuery = window.matchMedia('(max-width: 500)');
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
     setIsMobile(mediaQuery.matches);
 
-    const handleMediaQueryChange = (event) =>{
+    const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
-    }
+    };
 
-    mediaQuery.addEventListener('change',handleMediaQueryChange);
-    return(()=>{
-      mediaQuery.removeEventListener('change',handleMediaQueryChange);
-    })
-
-  },[])
-
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <Canvas
       frameLoop="demand"
       shadows
-      camera={{ position: [ 20, 3, 5], fov:25 }}
-      gL={{preserveDrawingBuffer: true }}
+      camera={{ position: [10, 3, 10], fov: 35 }} 
+      gl={{ preserveDrawingBuffer: true }}
     >
-      <Suspense 
-        fallback={<CanvasLoader/>}
-      >
+      <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          maxPolarAngle={Math.PI/2}
-          minPolarAngle={Math.PI/2}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 3}
         />
         <Computers isMobile={isMobile} />
       </Suspense>
- 
-      <Preload all/>
 
+      <Preload all />
     </Canvas>
-  )
-}  
+  );
+};
 
 export default ComputersCanvas;
