@@ -220,7 +220,7 @@ const projects = [
       },
     ],
     image: proj_1,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Ajxxxs",
   },
   {
     name: "Agro-Vision",
@@ -241,7 +241,7 @@ const projects = [
       },
     ],
     image: proj_2,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Ajxxxs/Agro-Vision",
   },
   {
     name: "Muscle-Matrix",
@@ -262,7 +262,7 @@ const projects = [
       },
     ],
     image: proj_3,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Ajxxxs/Muscle-Matrix",
   },
   {
     name: "Blog-101",
@@ -283,7 +283,7 @@ const projects = [
       },
     ],
     image: proj_4,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Ajxxxs",
   }
 ];
 
