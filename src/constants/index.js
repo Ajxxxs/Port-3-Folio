@@ -220,7 +220,7 @@ const projects = [
       },
     ],
     image: proj_1,
-    source_code_link: "https://github.com/Ajxxxs",
+    source_code_link: "https://github.com/Ajxxxs/Port-3-Folio",
   },
   {
     name: "Agro-Vision",
