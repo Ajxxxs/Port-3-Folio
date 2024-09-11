@@ -19,6 +19,7 @@ import {
   starbucks,
   tesla,
   shopify,
+  SIHLogo,
   carrent,
   jobit,
   tripguide,
@@ -116,7 +117,7 @@ const experiences = [
   {
     title: "SIH Hackathon",
     company_name: "Smart India Hackathon",
-    icon: starbucks,
+    icon: SIHLogo,
     iconBg: "#383E56",
     date: "2023 & 2024",
     points: [
