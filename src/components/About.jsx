@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Tilt } from 'react-tilt';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
@@ -8,7 +8,7 @@ import { SectionWrapper } from '../hoc';
 
 
 
-const ServiceCard = ({title,icon,index}) =>{
+const ServiceCard = memo(({title,icon,index}) => {
   return(
     <Tilt className="xs:w-[250px] w-full">
       <motion.div
@@ -31,7 +31,7 @@ const ServiceCard = ({title,icon,index}) =>{
       </motion.div>
     </Tilt>
   ) 
-}
+})
 
 
 

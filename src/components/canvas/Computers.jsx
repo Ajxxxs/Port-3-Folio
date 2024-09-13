@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Preload, useAnimations } from '@react-three/drei';
 import CanvasLoader from '../Loader';
@@ -9,13 +9,13 @@ const Computers = ({ isMobile }) => {
 
   useEffect(() => {
     if (actions && Object.keys(actions).length > 0) {
-      const solvingAnimation = actions[Object.keys(actions)[0]]; // Assuming the first animation is the solving one
-      solvingAnimation?.play(); // Ensure the animation exists before playing it
+      const solvingAnimation = actions[Object.keys(actions)[0]];
+      solvingAnimation?.play();
     }
   }, [actions]);
 
-  return (
-    <mesh>
+  const lights = useMemo(() => (
+    <>
       <hemisphereLight intensity={0.75} groundColor="black" />
       <pointLight intensity={1} />
       <spotLight 
@@ -26,6 +26,12 @@ const Computers = ({ isMobile }) => {
         castShadow
         shadow-mapSize={1024}
       />
+    </>
+  ), []);
+
+  return (
+    <mesh>
+      {lights}
       <primitive 
         object={scene} 
         scale={isMobile ? 0.7 : 5}  
@@ -55,7 +61,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameLoop="demand"
+      frameLoop="always"
       shadows
       camera={{ position: [10, 3, 10], fov: 35 }} 
       gl={{ preserveDrawingBuffer: true }}
